@@ -9,6 +9,9 @@ const session = require('express-session')
 
 const authRouter = require('./routes/auth')
 
+const isSignedIn = require('./middleware/is-signed-in')
+const passUserToView = require('./middleware/pass-user-to-view')
+
 mongoose.connect(process.env.MONGO_URI)
 
 mongoose.connection.once('open', () => {
@@ -32,6 +35,16 @@ app.use(
         saveUninitialized: true,
     })
 )
+
+app.get('/', (req, res) => {
+    res.render('index.ejs', {
+        user: req.session.user
+    })
+})
+
+app.use(passUserToView)
+app.use('/auth', authRouter)
+app.use(isSignedIn)
 
 app.listen(PORT, () => {
     console.log(`Listening on port: ${PORT}`)

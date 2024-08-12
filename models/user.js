@@ -4,8 +4,8 @@ const userSchema = new mongoose.Schema({
     email: { type: String, required: true },
     username: { type: String, required: true },
     password: { type: String, required: true },
-    birds: [{ type: Schema.Types.ObjectId, ref: 'Bird' }],
-    comment: [{ type: Schema.Types.ObjectId, ref: 'Comment' }],
+    birds: [{ type: mongoose.Schema.Types.ObjectId, ref: "Bird" }],
+    comment: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }],
 })
 
 const User = mongoose.model('User', userSchema)
