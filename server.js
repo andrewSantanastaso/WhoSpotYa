@@ -7,7 +7,7 @@ const mongoose = require('mongoose')
 const logger = require('morgan')
 const session = require('express-session')
 
-
+const authRouter = require('./routes/auth')
 
 mongoose.connect(process.env.MONGO_URI)
 
