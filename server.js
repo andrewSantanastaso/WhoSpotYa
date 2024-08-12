@@ -9,6 +9,7 @@ const session = require('express-session')
 
 const authRouter = require('./routes/auth')
 const userRouter = require('./routes/user')
+const birdRouter = require('./routes/bird')
 
 const isSignedIn = require('./middleware/is-signed-in')
 const passUserToView = require('./middleware/pass-user-to-view')
@@ -24,7 +25,7 @@ mongoose.connection.on('error', () => {
 })
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
-app.use(logger('tiny'))
+app.use(logger('dev'))
 app.use((req, res, next) => {
     res.locals.data = {}
     next()
@@ -47,6 +48,7 @@ app.use(passUserToView)
 app.use('/auth', authRouter)
 app.use(isSignedIn)
 app.use('/user', userRouter)
+app.use('/birds', birdRouter)
 
 app.listen(PORT, () => {
     console.log(`Listening on port: ${PORT}`)

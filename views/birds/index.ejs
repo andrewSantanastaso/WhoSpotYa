@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Spotted Birds</title>
+</head>
+
+<body>
+    <h4>Log your own spotting <a href="/birds/new">here</a></h4>
+    <ul>
+        <%birds.forEach((bird)=>{ %>
+            <li><a href=""></a>
+                <%=bird.name%> spotted by <%=bird.user.username%> at <%=bird.location %>
+            </li>
+            <%}) %>
+    </ul>
+</body>
+
+</html>

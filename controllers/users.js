@@ -1,12 +1,14 @@
 const User = require('../models/user')
+const Bird = require('../models/bird')
 
 
 const index = async (req, res) => {
     try {
         const currentUser = await User.findById(req.session.user._id)
+        const currentUserBirds = await Bird.find({ user: currentUser })
         res.render('user/index.ejs', {
             user: currentUser,
-            birds: currentUser.birds,
+            birds: currentUserBirds,
             comments: currentUser.comments
         })
     } catch (error) {

@@ -16,7 +16,9 @@
     <ul>
         <% birds.forEach((bird)=>{ %>
             <li>
-                <%=bird.name %> which you spotted <%=bird.location %>
+                <strong>
+                    <%=bird.name %>
+                </strong> which you spotted in <%=bird.location %>
             </li>
 
             <% }) %>
