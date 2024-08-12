@@ -45,6 +45,7 @@ app.get('/', (req, res) => {
 app.use(passUserToView)
 app.use('/auth', authRouter)
 app.use(isSignedIn)
+app.use('/user', userRouter)
 
 app.listen(PORT, () => {
     console.log(`Listening on port: ${PORT}`)
