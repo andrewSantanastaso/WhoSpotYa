@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Page</title>
+</head>
+
+<body>
+    <h1>Welcome <%=user.username%>
+    </h1>
+    <p>Spotted anything? Log your birds <a href="/birds/new">here</a></p>
+    <h2>Here's all the birds you've spotted</h2>
+    <ul>
+        <% birds.forEach((bird)=>{ %>
+            <li>
+                <%=bird.name %> which you spotted <%=bird.location %>
+            </li>
+
+            <% }) %>
+    </ul>
+    <h2>
+        You're part of the community!
+    </h2>
+    <p>Here are all the comments you've made</p>
+    <ul>
+        <% comments.forEach((comment)=>{ %>
+            <li>
+                <%=comment.text %>
+                    Link to <a href="<%comment.bird._id%>/show">
+                        <%=comment.bird.name%>
+                    </a>
+            </li>
+
+            <% }) %>
+    </ul>
+</body>
+
+</html>

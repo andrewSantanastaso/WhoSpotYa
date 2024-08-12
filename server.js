@@ -8,6 +8,7 @@ const logger = require('morgan')
 const session = require('express-session')
 
 const authRouter = require('./routes/auth')
+const userRouter = require('./routes/user')
 
 const isSignedIn = require('./middleware/is-signed-in')
 const passUserToView = require('./middleware/pass-user-to-view')

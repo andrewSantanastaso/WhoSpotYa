@@ -5,7 +5,7 @@ const userSchema = new mongoose.Schema({
     username: { type: String, required: true },
     password: { type: String, required: true },
     birds: [{ type: mongoose.Schema.Types.ObjectId, ref: "Bird" }],
-    comment: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }],
+    comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }],
 })
 
 const User = mongoose.model('User', userSchema)

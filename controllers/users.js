@@ -4,7 +4,7 @@ const User = require('../models/user')
 const index = async (req, res) => {
     try {
         const currentUser = await User.findById(req.session.user._id)
-        res.render('/users/index.ejs', {
+        res.render('user/index.ejs', {
             user: currentUser,
             birds: currentUser.birds,
             comments: currentUser.comments
@@ -17,7 +17,7 @@ const index = async (req, res) => {
 const showUser = async (req, res) => {
     try {
         const foundUser = await User.findOne({ _id: req.params.id })
-        res.render('/users/show.ejs', {
+        res.render('/user/show.ejs', {
             user: foundUser
         })
     } catch (error) {
