@@ -15,9 +15,25 @@
                 <%=bird.name%> spotted by
                     <%=bird.user.username%>
                         in <%=bird.location %>
+                            <ul>
+                                <%bird.comments.forEach((comment)=>{ %>
+                                    <li>
+                                        <%=comment.text%> posted by <%=comment.user%>
+                                    </li>
+                                    <% }) %>
+                            </ul>
+                            <a href="">Add your own comment</a>
+                            <form action="/comments" method="POST" id="'comment-box">
+                                <label for="text"></label>
+                                <input type="text" name="text" id="text">
+                                <button type="submit">Submit</button>
+                            </form>
+
+
             </li>
             <%}) %>
     </ul>
+    <footer>Back to <a href="/user">HOME</a></footer>
 </body>
 
 </html>

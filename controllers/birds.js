@@ -20,8 +20,8 @@ const newBird = (req, res) => {
 const deleteBird = async (req, res) => {
 
     try {
-        const currentUser = await User.findById({ _id: req.session.user.id })
-        currentUser.birds.id(req.params._id).deleteOne()
+        const currentUser = await User.findById({ _id: req.session.user._id })
+        const foundBird = await Bird.findByIdAndDelete(req.params.id)
         await currentUser.save()
         res.redirect('/user')
     } catch (error) {
@@ -31,10 +31,11 @@ const deleteBird = async (req, res) => {
 
 const updateBird = async (req, res) => {
     try {
-        const currentUser = await User.findByIdAndUpdate({ _id: req.session.user.id })
-        const updatedBird = currentUser.birds.id(req.params._id)
-        bird.set(req.body)
-        await currentUser.save()
+        const currentUser = await User.findById({ _id: req.session.user._id })
+        const foundBird = await Bird.findByIdAndUpdate(req.params.id)
+        foundBird.set(req.body)
+
+        await foundBird.save()
         res.redirect('/user')
     } catch (error) {
         res.status(400).json({ msg: error.message })
@@ -60,9 +61,10 @@ const createBird = async (req, res) => {
 const editBird = async (req, res) => {
     try {
         const currentUser = await User.findById({ _id: req.session.user._id })
-        const bird = currentUser.birds._id(req.params.id)
-        res.render('/birds/edit.ejs', {
-            bird: bird
+        req.body.user = currentUser
+        const foundBird = await Bird.findById(req.params.id)
+        res.render('birds/edit.ejs', {
+            bird: foundBird
         })
     } catch (error) {
         res.status(400).json({ msg: error.message })

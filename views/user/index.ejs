@@ -19,6 +19,8 @@
                 <strong>
                     <%=bird.name %>
                 </strong> which you spotted in <%=bird.location %>
+                    <a href="birds/<%=bird._id%>/edit">Edit this bird</a>
+
             </li>
 
             <% }) %>
@@ -34,6 +36,7 @@
                     Link to <a href="<%comment.bird._id%>/show">
                         <%=comment.bird.name%>
                     </a>
+
             </li>
 
             <% }) %>
