@@ -1,15 +1,18 @@
 const User = require('../models/user')
 const Bird = require('../models/bird')
+const Comment = require('../models/comment')
 
 
 const index = async (req, res) => {
     try {
         const currentUser = await User.findById(req.session.user._id)
         const currentUserBirds = await Bird.find({ user: currentUser })
+        const currentUserComments = await Comment.find({ user: currentUser })
+
         res.render('user/index.ejs', {
             user: currentUser,
             birds: currentUserBirds,
-            comments: currentUser.comments
+            comments: currentUserComments
         })
     } catch (error) {
         res.status(400).json({ msg: error.message })

@@ -1,9 +1,14 @@
 const Bird = require('../models/bird')
 const User = require('../models/user')
+const Comment = require('../models/comment')
 
 const index = async (req, res) => {
     try {
-        const allBirds = await Bird.find({}).populate('user')
+        const allBirds = await Bird.find({}).populate({
+            path: 'comments', populate: { path: 'user', model: 'User', select: 'username' },
+
+
+        }).populate('user')
 
         res.render('birds/index.ejs', {
             birds: allBirds
@@ -74,10 +79,14 @@ const editBird = async (req, res) => {
 
 const showBird = async (req, res) => {
     try {
-        const currentUser = await User.findById({ _id: req.session.user._id })
-        const bird = currentUser.birds._id(req.params.id)
-        res.render('/birds/show.ejs', {
-            bird: bird
+        const foundBird = await Bird.findOne({ _id: req.params.id }).populate({
+            path: 'comments', populate: { path: 'user', model: 'User', select: 'username' },
+
+
+        }).populate('user')
+
+        res.render('birds/show.ejs', {
+            bird: foundBird
         })
     } catch (error) {
         res.status(400).json({ msg: error.message })

@@ -10,6 +10,7 @@ const session = require('express-session')
 const authRouter = require('./routes/auth')
 const userRouter = require('./routes/user')
 const birdRouter = require('./routes/bird')
+const commentRouter = require('./routes/comment')
 
 const isSignedIn = require('./middleware/is-signed-in')
 const passUserToView = require('./middleware/pass-user-to-view')
@@ -49,6 +50,7 @@ app.use('/auth', authRouter)
 app.use(isSignedIn)
 app.use('/user', userRouter)
 app.use('/birds', birdRouter)
+app.use('/comments', commentRouter)
 
 app.listen(PORT, () => {
     console.log(`Listening on port: ${PORT}`)

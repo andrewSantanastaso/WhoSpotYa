@@ -18,12 +18,12 @@
                             <ul>
                                 <%bird.comments.forEach((comment)=>{ %>
                                     <li>
-                                        <%=comment.text%> posted by <%=comment.user%>
+                                        <%=comment.text%> posted by <%=comment.user.username%>
                                     </li>
                                     <% }) %>
                             </ul>
                             <a href="">Add your own comment</a>
-                            <form action="/comments" method="POST" id="'comment-box">
+                            <form action="/comments/<%=bird._id%>" method="POST" id="'comment-box">
                                 <label for="text"></label>
                                 <input type="text" name="text" id="text">
                                 <button type="submit">Submit</button>

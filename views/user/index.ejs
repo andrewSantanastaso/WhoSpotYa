@@ -19,7 +19,8 @@
                 <strong>
                     <%=bird.name %>
                 </strong> which you spotted in <%=bird.location %>
-                    <a href="birds/<%=bird._id%>/edit">Edit this bird</a>
+                    <a href="birds/<%=bird._id%>/edit">Edit this spotting</a>
+                    <a href="birds/<%=bird._id%>">More info</a>
 
             </li>
 
@@ -31,11 +32,10 @@
     <p>Here are all the comments you've made</p>
     <ul>
         <% comments.forEach((comment)=>{ %>
+
             <li>
-                <%=comment.text %>
-                    Link to <a href="<%comment.bird._id%>/show">
-                        <%=comment.bird.name%>
-                    </a>
+                <%=comment.text %> made on <%=bird.name%>,which was spotted by <%=bird.user.username%>
+
 
             </li>
 
