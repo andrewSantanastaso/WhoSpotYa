@@ -34,9 +34,12 @@
         <% comments.forEach((comment)=>{ %>
 
             <li>
-                <%=comment.text %> made on <%=bird.name%>,which was spotted by <%=bird.user.username%>
-
-
+                <%=comment.text %> made on the spotting of a <a href="birds/<%=comment.bird._id%>">
+                        <%=comment.bird.name%>
+                    </a>,which was spotted by <a href="user/<%=comment.bird.user._id%>">
+                        <%=comment.bird.user.username%>
+                    </a>
+                    in <%=comment.bird.location%>
             </li>
 
             <% }) %>

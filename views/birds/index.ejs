@@ -18,7 +18,9 @@
                             <ul>
                                 <%bird.comments.forEach((comment)=>{ %>
                                     <li>
-                                        <%=comment.text%> posted by <%=comment.user.username%>
+                                        <%=comment.text%> posted by
+                                            <%=comment.user.username%>
+
                                     </li>
                                     <% }) %>
                             </ul>
