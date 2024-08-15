@@ -5,45 +5,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Page</title>
+    <link rel="stylesheet" href="/assets/css/userStyle.css">
 </head>
 
 <body>
+    <div id="logo">
+        <img src="/assets/images/WSP_BIRD.png" alt="who-spot-ya-bird" class="logo">
+    </div>
     <h1>Welcome <%=user.username%>
     </h1>
-    <p>Spotted anything? Log your birds <a href="/birds/new">here</a></p>
-    <h3>Check out all the spotting going on in the community <a href="/birds/">here</a></h3>
-    <h2>Here's all the birds you've spotted</h2>
-    <ul>
-        <% birds.forEach((bird)=>{ %>
-            <li>
-                <strong>
-                    <%=bird.name %>
-                </strong> which you spotted in <%=bird.location %>
-                    <a href="birds/<%=bird._id%>/edit">Edit this spotting</a>
-                    <a href="birds/<%=bird._id%>">More info</a>
+    <div class="log-spot">
+        <p>Spotted anything? Log your birds <a href="/birds/new">here</a></p>
+    </div>
+    <div class="community-page">
+        <h3>Check out all the spotting going on in the community <a href="/birds/">here</a></h3>
+    </div>
+    <div class="user-birds">
+        <h2>Here's all the birds you've spotted</h2>
+        <ul>
+            <% birds.forEach((bird)=>{ %>
+                <li>
+                    <strong>
+                        <%=bird.name %>
+                    </strong> which you spotted in <%=bird.location %>
+                        <div class="user-links">
+                            <a href="birds/<%=bird._id%>/edit">Edit this spotting</a>
+                            <a href="birds/<%=bird._id%>">More info</a>
+                        </div>
 
-            </li>
+                </li>
 
-            <% }) %>
-    </ul>
-    <h2>
-        You're part of the community!
-    </h2>
-    <p>Here are all the comments you've made</p>
-    <ul>
-        <% comments.forEach((comment)=>{ %>
+                <% }) %>
+        </ul>
+    </div>
+    <div class="user-comments">
+        <h2>
+            You're part of the community!
+        </h2>
+        <p>Here are all the comments you've made</p>
+        <ul>
+            <% comments.forEach((comment)=>{ %>
 
-            <li>
-                <%=comment.text %> made on the spotting of a <a href="birds/<%=comment.bird._id%>">
-                        <%=comment.bird.name%>
-                    </a>,which was spotted by <a href="user/<%=comment.bird.user._id%>">
-                        <%=comment.bird.user.username%>
-                    </a>
-                    in <%=comment.bird.location%>
-            </li>
+                <li>
+                    '<%=comment.text%>' made on the spotting of a <a href="birds/<%=comment.bird._id%>">
+                            <%=comment.bird.name%>
+                        </a>,which was spotted by <a href="user/<%=comment.bird.user._id%>">
+                            <%=comment.bird.user.username %>
+                        </a>
+                        &nbsp in <%=comment.bird.location%>
+                </li>
 
-            <% }) %>
-    </ul>
+                <% }) %>
+        </ul>
+    </div>
     <a href="/auth/sign-out">Sign Out</a>
 </body>
 

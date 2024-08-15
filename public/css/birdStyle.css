@@ -1,0 +1,12 @@
+body {
+  font-family: "Anton", sans-serif;
+}
+
+.main-bird {
+  list-style: none;
+}
+
+.no-comments {
+  font-weight: lighter;
+  font-style: italic;
+}

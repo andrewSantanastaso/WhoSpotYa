@@ -22,7 +22,7 @@ const index = async (req, res) => {
 
 const showUser = async (req, res) => {
     try {
-        const foundUser = await User.findOne({ _id: req.params.id })
+        const foundUser = await User.findOne({ _id: req.params.id }).populate('birds')
         res.render('user/show.ejs', {
             user: foundUser
         })

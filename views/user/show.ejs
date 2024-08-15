@@ -5,10 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/assets/css/userStyle.css">
 </head>
 
 <body>
-    <h1>USER SHOW</h1>
+    <div id="logo">
+        <img src="/assets/images/WSP_BIRD.png" alt="who-spot-ya-bird" class="logo">
+    </div>
+    <h1>
+        <%=user.username%>'s Page
+    </h1>
+    <div class="user-birds">
+        <h2>Here's all the birds <%=user.username%> has spotted</h2>
+        <ul>
+            <% user.birds.forEach((bird)=>{ %>
+                <li>
+                    <strong>
+                        <a href="/birds/<%=bird._id%>">
+                            <%=bird.name %>
+                        </a>
+                    </strong> spotted in <%=bird.location %>
+
+
+                </li>
+
+                <% }) %>
+        </ul>
+    </div>
 </body>
 
 </html>

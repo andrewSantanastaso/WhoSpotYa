@@ -5,17 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Gloria+Hallelujah&display=swap" rel="stylesheet">
 </head>
 
-<body>
 
+<body>
+    <img src="/assets/images/WSP_FULL.png" alt="Who-spot-ya-logo">
     <h1>Sign in</h1>
     <form action="/auth/sign-in" method="POST">
         <label for="username">Username:</label>
         <input type="text" name="username" id="username" required />
         <label for="password">Password:</label>
         <input type="password" name="password" id="password" required />
-        <button type="submit">Sign in</button>
+        <button type="submit" id="button-signin">Sign in</button>
     </form>
 </body>
 

@@ -1,0 +1,41 @@
+body {
+  background-color: #faf0ca;
+  color: #0d3b66;
+  font-family: "Anton", sans-serif;
+}
+
+img {
+  position: fixed;
+  z-index: -1;
+
+  width: 100%;
+  top: 0;
+}
+li {
+  list-style: none;
+}
+
+.user-birds {
+  display: flex;
+  background-color: #f4d45e8f;
+  flex-direction: column;
+}
+
+.user-birds li {
+  background-color: #f95838d5;
+  width: fit-content;
+  border-radius: 5px;
+}
+
+.user-links a {
+  font-size: x-small;
+}
+
+.user-comments {
+  background-color: #0d3b6692;
+  color: #faf0ca;
+}
+.user-comments a {
+  background-color: #f95838e9;
+  border-radius: 5px;
+}

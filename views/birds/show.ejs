@@ -7,19 +7,30 @@
     <title>
         <%=bird.name%> info
     </title>
+    <link rel="stylesheet" href="/assets/css/birdStyle.css">
 </head>
 
 <body>
     <h4>
         <%=bird.name%> was spotted in <%=bird.location%>, by <%=bird.user.username%>
                     <ul>
-                        <%bird.comments.forEach((comment)=>{ %>
-                            <li>
-                                <%=comment.text%> by <%=comment.user.username%>
-                            </li>
-                            <% }) %>
+                        <% if (bird.comments.length===0){ %>
+                            <p class="no-comments">Looks like there are no comments</p>
+                            <% } else {%>
+
+                                <%bird.comments.forEach((comment)=>{ %>
+
+                                    <li>
+
+                                        <%=comment.text%> by <a href="./user/<%=comment.user._id%>">
+                                                <%=comment.user.username%>
+                                            </a>
+                                    </li>
+                                    <% }) %>
+                                        <% } %>
                     </ul>
     </h4>
+    <a href="/birds">Back to All Spottings</a>
 </body>
 
 </html>

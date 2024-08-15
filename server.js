@@ -7,6 +7,7 @@ const mongoose = require('mongoose')
 const logger = require('morgan')
 const session = require('express-session')
 
+
 const authRouter = require('./routes/auth')
 const userRouter = require('./routes/user')
 const birdRouter = require('./routes/bird')
@@ -26,7 +27,7 @@ mongoose.connection.on('error', () => {
 })
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
-app.use(logger('dev'))
+app.use('/assets', express.static('public'))
 app.use((req, res, next) => {
     res.locals.data = {}
     next()
