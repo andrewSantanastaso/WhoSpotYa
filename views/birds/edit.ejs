@@ -6,22 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit <%=bird.name%>
     </title>
+    <link rel="stylesheet" href="/assets/css/birdStyle.css">
 </head>
 
-<body>
+<body id="form">
 
-    <body>
-        <form action="/birds/<%=bird.id%>?_method=PUT" method="POST">
-            <label for="name">What bird did you spot?</label>
-            <input type="text" name="name" id="name" value="<%=bird.name%>">
-            <label for="location">Where did you spot it?</label>
-            <input type="text" name="location" id="location" value="<%=bird.location%>">
-            <button type="submit">Log Your Spot</button>
-        </form>
-        <form action="/birds/<%=bird.id%>?_method=DELETE" method="POST">
-            <input type="submit" value="Delete Bird">
-        </form>
-    </body>
+    <form action="/birds/<%=bird.id%>?_method=PUT" method="POST" id="bird-form">
+        <label for="name">What bird did you spot?</label>
+        <input type="text" name="name" id="name" value="<%=bird.name%>">
+        <label for="location">Where did you spot it?</label>
+        <input type="text" name="location" id="location" value="<%=bird.location%>">
+        <button type="submit">Log Your Spot</button>
+    </form>
+    <form action="/birds/<%=bird.id%>?_method=DELETE" method="POST">
+        <input type="submit" value="Delete Bird" id="submit">
+    </form>
+    <a href="/birds">Go to All Spottings</a>
+    <a href="/user">Go Home</a>
 </body>
 
 </html>

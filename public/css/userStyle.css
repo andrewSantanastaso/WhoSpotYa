@@ -11,8 +11,11 @@ img {
   width: 100%;
   top: 0;
 }
+
 li {
   list-style: none;
+  margin: 10px 0px 10px 0px;
+  padding: 3px;
 }
 
 .user-birds {
@@ -50,4 +53,8 @@ li {
   position: absolute;
   right: 10px;
   top: 5px;
+}
+
+#submit {
+  cursor: pointer;
 }

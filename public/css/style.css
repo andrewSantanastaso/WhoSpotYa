@@ -39,3 +39,10 @@ img {
 h3 {
   margin-top: 0px;
 }
+
+a {
+  cursor: pointer;
+}
+button {
+  cursor: pointer;
+}

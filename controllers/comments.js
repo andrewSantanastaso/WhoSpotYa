@@ -33,7 +33,8 @@ const deleteComment = async (req, res) => {
         const foundComment = await Comment.findByIdAndDelete(req.params.commentId)
 
         await currentUser.save()
-        res.redirect('/user')
+        res.redirect('back')
+
     } catch (error) {
         res.status(400).json({ msg: error.message })
     }

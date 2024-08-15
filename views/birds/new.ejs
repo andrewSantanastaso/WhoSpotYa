@@ -8,16 +8,18 @@
     <link rel="stylesheet" href="/assets/css/birdStyle.css">
 </head>
 
-<body>
+<body id="form">
     <img src="/assets/images/owl_cropped.png" alt="owl-logo" class="owl-logo">
-    <form action="/birds" method="POST">
+    <form action="/birds" method="POST" id="bird-form">
         <label for="name">What bird did you spot?</label>
-        <input type="text" name="name" id="name">
+        <input type="text" name="name" id="name" placeholder="Enter bird name">
         <label for="location">Where did you spot it?</label>
-        <input type="text" name="location" id="location">
+        <input type="text" name="location" id="location" placeholder="Enter location">
         <button type="submit">Log Your Spot</button>
 
     </form>
+    <a href="/birds">Go to All Spottings</a>
+    <a href="/user">Go Home</a>
 </body>
 
 </html>

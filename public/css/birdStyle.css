@@ -4,7 +4,38 @@ body {
   color: #f4d35e;
 }
 
-.main-bird {
+#form {
+  color: #0d3b66;
+  background: rgb(13, 59, 102);
+  background: linear-gradient(
+    127deg,
+    rgba(13, 59, 102, 1) 0%,
+    rgba(237, 209, 109, 1) 81%,
+    rgba(238, 150, 75, 1) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#birds-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+}
+#all-birds {
+  display: flex;
+  flex-direction: column;
+  min-height: 70px;
+  border: 5px solid #ee964b;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: #faf0ca;
+  color: #0d3b66;
+  padding: 3px;
+}
+.parent-bird {
   list-style: none;
 }
 
@@ -24,20 +55,24 @@ body {
 #comment-container {
   display: flex;
   flex-direction: column;
-  border: 1px solid red;
+
   gap: 10px;
-  width: 150px;
+  width: 200px;
   flex-wrap: nowrap;
+  min-height: 10px;
+  margin-bottom: 10px;
 }
 
 a {
-  background-color: tomato;
+  background-color: rgba(255, 99, 71, 0.851);
   border-radius: 5px;
   font-weight: lighter;
 }
 
 .comment-box {
   border-radius: 5px;
+  margin-top: 5px;
+  margin-bottom: 20px;
 }
 
 ::placeholder {
@@ -47,4 +82,31 @@ a {
 button {
   background-color: #f4d35e;
   border-radius: 5px;
+}
+
+#bird-form {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  margin: 35vh;
+  gap: 10px;
+}
+
+a {
+  cursor: pointer;
+}
+
+#submit {
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1 {
+  text-align: center;
+  text-decoration: underline;
 }

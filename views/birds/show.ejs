@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <img src="/assets/images/owl_cropped.png" alt="owl-logo" class="owl-logo">
     <h4>
         <%=bird.name%> was spotted in <%=bird.location%>, by <%=bird.user.username%>
                     <ul>
@@ -26,8 +27,12 @@
                                                 <%=comment.user.username%>
                                             </a>
                                     </li>
+                                    <form action="/comments/<%=comment._id%>?_method=DELETE" method="POST">
+                                        <input type="submit" value="Delete Comment" id="submit">
+                                    </form>
                                     <% }) %>
                                         <% } %>
+
                     </ul>
     </h4>
     <a href="/birds">Back to All Spottings</a><br><br>

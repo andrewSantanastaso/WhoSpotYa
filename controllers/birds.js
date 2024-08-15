@@ -5,21 +5,25 @@ const Comment = require('../models/comment')
 const index = async (req, res) => {
     try {
         const allBirds = await Bird.find({}).populate({
-            path: 'comments', populate: { path: 'user', model: 'User', select: 'username' },
+            path: 'comments', populate: { path: 'user', model: 'User', select: 'username _id' },
 
 
         }).populate('user')
-
+        const currentUser = await User.findById({ _id: req.session.user._id })
         res.render('birds/index.ejs', {
-            birds: allBirds
+            birds: allBirds,
+            user: currentUser
         })
     } catch (error) {
         res.status(400).json({ msg: error.message })
     }
 }
 
-const newBird = (req, res) => {
-    res.render('birds/new.ejs')
+const newBird = async (req, res) => {
+    const currentUser = await User.findById({ _id: req.session.user._id })
+    res.render('birds/new.ejs', {
+        user: currentUser
+    })
 }
 
 const deleteBird = async (req, res) => {

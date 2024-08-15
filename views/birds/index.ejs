@@ -11,48 +11,71 @@
 <body>
     <img src="/assets/images/owl_cropped.png" alt="owl-logo" class="owl-logo">
     <h4>Log your own spotting <a href="/birds/new">here</a></h4>
-    <ul>
-        <%birds.forEach((bird)=>{ %>
+    <h1>SPOTTING HUB</h1>
+    <div id="birds-container">
+        <ul>
 
-            <li class="main-bird">
-                <%=bird.name%> spotted by
-                    <a href="/user/<%=bird.user._id%>">
-                        <%=bird.user.username%>
-                    </a>
-                    &nbsp;in <%=bird.location %>
+            <%birds.forEach((bird)=>{ %>
+                <div id="all-birds">
 
-                        <ul>
+                    <li class="parent-bird">
+                        <strong>
+                            <%=bird.name%>
+                        </strong> spotted by
+                        <a href="/user/<%=bird.user._id%>">
+                            <%=bird.user.username%>
+                        </a>
+                        &nbsp;in <%=bird.location %>
 
-                            <%bird.comments.forEach((comment)=>{ %>
-                                <div id="comment-container">
-                                    <li>
+                            <ul>
 
-                                        <%=comment.text%> posted by
-                                            <a href="/user/<%=comment.user._id%>">
-                                                <%=comment.user.username%>
-                                            </a>
+                                <%bird.comments.forEach((comment)=>{ %>
+                                    <div id="comment-container">
+                                        <li>
 
-                                    </li>
+                                            <%=comment.text%> posted by
+                                                <a href="/user/<%=comment.user._id%>">
+                                                    <%=comment.user.username%>
+                                                </a>
+                                                <%if (comment.user.id===user.id){%>
+                                                    <form action="/comments/<%=comment._id%>?_method=DELETE"
+                                                        method="POST">
+                                                        <input type="submit" value="Delete Comment" id="submit">
+                                                    </form>
+                                                    <%}%>
 
-                                    <% }) %>
+                                        </li>
 
-                        </ul>
+                                        <% }) %>
 
-                        <form action="/comments/<%=bird._id%>" method="POST" id="'comment-box">
-                            <label for="text"></label>
-                            <input type="text" name="text" id="text" placeholder="Add Your Own Comment"
-                                class="comment-box">
-                            <button type="submit">Submit</button>
-                        </form>
+                            </ul>
+
+                            <form action="/comments/<%=bird._id%>" method="POST" id="'comment-box">
+                                <label for="text"></label>
+                                <input type="text" name="text" id="text" placeholder="Add Your Own Comment"
+                                    class="comment-box">
+                                <button type="submit">Submit</button>
+                            </form>
 
 
-            </li>
-            </div>
-            <%}) %>
+                    </li>
 
-    </ul>
 
-    <footer>Back to <a href="/user">HOME</a></footer>
+
+                </div>
+                <%}) %>
+
+        </ul>
+    </div>
+
+
+
+
+
+
+
+    <footer><a href="/user">HOME</a></footer>
+
 </body>
 
 </html>
