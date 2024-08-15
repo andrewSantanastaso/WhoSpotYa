@@ -9,37 +9,49 @@
 </head>
 
 <body>
+    <img src="/assets/images/owl_cropped.png" alt="owl-logo" class="owl-logo">
     <h4>Log your own spotting <a href="/birds/new">here</a></h4>
     <ul>
         <%birds.forEach((bird)=>{ %>
+
             <li class="main-bird">
                 <%=bird.name%> spotted by
                     <a href="/user/<%=bird.user._id%>">
                         <%=bird.user.username%>
                     </a>
-                    in <%=bird.location %>
-                        <ul>
-                            <%bird.comments.forEach((comment)=>{ %>
-                                <li>
-                                    <%=comment.text%> posted by
-                                        <a href="/user/<%=comment.user._id%>">
-                                            <%=comment.user.username%>
-                                        </a>
+                    &nbsp;in <%=bird.location %>
 
-                                </li>
-                                <% }) %>
+                        <ul>
+
+                            <%bird.comments.forEach((comment)=>{ %>
+                                <div id="comment-container">
+                                    <li>
+
+                                        <%=comment.text%> posted by
+                                            <a href="/user/<%=comment.user._id%>">
+                                                <%=comment.user.username%>
+                                            </a>
+
+                                    </li>
+
+                                    <% }) %>
+
                         </ul>
 
                         <form action="/comments/<%=bird._id%>" method="POST" id="'comment-box">
                             <label for="text"></label>
-                            <input type="text" name="text" id="text" placeholder="Add Your Own Comment">
+                            <input type="text" name="text" id="text" placeholder="Add Your Own Comment"
+                                class="comment-box">
                             <button type="submit">Submit</button>
                         </form>
 
 
             </li>
+            </div>
             <%}) %>
+
     </ul>
+
     <footer>Back to <a href="/user">HOME</a></footer>
 </body>
 

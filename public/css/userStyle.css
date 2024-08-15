@@ -19,23 +19,35 @@ li {
   display: flex;
   background-color: #f4d45e8f;
   flex-direction: column;
+  text-shadow: 1px 1px 20px black;
 }
 
 .user-birds li {
   background-color: #f95838d5;
   width: fit-content;
   border-radius: 5px;
+  text-shadow: none;
 }
 
 .user-links a {
   font-size: x-small;
+  text-shadow: none;
 }
 
 .user-comments {
   background-color: #0d3b6692;
   color: #faf0ca;
+  text-shadow: 1px 1px 10px black;
 }
 .user-comments a {
   background-color: #f95838e9;
   border-radius: 5px;
+  text-shadow: none;
+}
+
+.logo-text {
+  width: 100px;
+  position: absolute;
+  right: 10px;
+  top: 5px;
 }

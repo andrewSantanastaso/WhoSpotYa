@@ -26,5 +26,17 @@ const addComment = async (req, res) => {
     }
 }
 
+const deleteComment = async (req, res) => {
+    try {
+        const currentUser = await User.findById({ _id: req.session.user._id }).populate('comments')
 
-module.exports = { addComment }
+        const foundComment = await Comment.findByIdAndDelete(req.params.commentId)
+
+        await currentUser.save()
+        res.redirect('/user')
+    } catch (error) {
+        res.status(400).json({ msg: error.message })
+    }
+}
+
+module.exports = { addComment, deleteComment }

@@ -1,5 +1,7 @@
 body {
   font-family: "Anton", sans-serif;
+  background-color: #0d3b66;
+  color: #f4d35e;
 }
 
 .main-bird {
@@ -9,4 +11,40 @@ body {
 .no-comments {
   font-weight: lighter;
   font-style: italic;
+}
+
+.owl-logo {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+
+#comment-container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid red;
+  gap: 10px;
+  width: 150px;
+  flex-wrap: nowrap;
+}
+
+a {
+  background-color: tomato;
+  border-radius: 5px;
+  font-weight: lighter;
+}
+
+.comment-box {
+  border-radius: 5px;
+}
+
+::placeholder {
+  text-align: center;
+}
+
+button {
+  background-color: #f4d35e;
+  border-radius: 5px;
 }

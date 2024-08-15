@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <img src="/assets/images/Text_WSP_cropped.png" alt="logo-text" class="logo-text">
     <div id="logo">
         <img src="/assets/images/WSP_BIRD.png" alt="who-spot-ya-bird" class="logo">
     </div>
@@ -17,20 +18,29 @@
     </h1>
     <div class="user-birds">
         <h2>Here's all the birds <%=user.username%> has spotted</h2>
-        <ul>
-            <% user.birds.forEach((bird)=>{ %>
-                <li>
-                    <strong>
-                        <a href="/birds/<%=bird._id%>">
-                            <%=bird.name %>
-                        </a>
-                    </strong> spotted in <%=bird.location %>
+        <% if (user.birds.length===0){ %>
+            <p>
+                <i>
+                    <%=user.username%> does not have any spottings yet
+                </i>
+            </p>
+
+            <%} else{ %>
+                <ul>
+                    <% user.birds.forEach((bird)=>{ %>
+                        <li>
+                            <strong>
+                                <a href="/birds/<%=bird._id%>">
+                                    <%=bird.name %>
+                                </a>
+                            </strong> spotted in <%=bird.location %>
 
 
-                </li>
+                        </li>
 
-                <% }) %>
-        </ul>
+                        <% }) %>
+                </ul>
+                <%} %>
     </div>
 </body>
 

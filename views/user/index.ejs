@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <img src="/assets/images/Text_WSP_cropped.png" alt="logo-text" class="logo-text">
     <div id="logo">
         <img src="/assets/images/WSP_BIRD.png" alt="who-spot-ya-bird" class="logo">
     </div>
@@ -22,41 +23,56 @@
     </div>
     <div class="user-birds">
         <h2>Here's all the birds you've spotted</h2>
-        <ul>
-            <% birds.forEach((bird)=>{ %>
-                <li>
-                    <strong>
-                        <%=bird.name %>
-                    </strong> which you spotted in <%=bird.location %>
-                        <div class="user-links">
-                            <a href="birds/<%=bird._id%>/edit">Edit this spotting</a>
-                            <a href="birds/<%=bird._id%>">More info</a>
-                        </div>
+        <% if(birds.length===0){%>
+            <p><i>Seems like you haven't spotted any birds yet, get out there and explore the skies!</i></p>
+            <%} else {%>
 
-                </li>
 
-                <% }) %>
-        </ul>
+                <ul>
+                    <% birds.forEach((bird)=>{ %>
+                        <li>
+                            <strong>
+                                <%=bird.name %>
+                            </strong> which you spotted in <%=bird.location %>
+                                <div class="user-links">
+                                    <a href="birds/<%=bird._id%>/edit">Edit this spotting</a>
+                                    <a href="birds/<%=bird._id%>">More info</a>
+                                </div>
+
+                        </li>
+
+                        <% }) %>
+                </ul>
+                <%}%>
     </div>
     <div class="user-comments">
         <h2>
             You're part of the community!
         </h2>
         <p>Here are all the comments you've made</p>
-        <ul>
-            <% comments.forEach((comment)=>{ %>
+        <% if (comments.length===0) {%>
+            <p><i>You have not made any comments yet, check out the community!</i></p>
+            <%} else{ %>
 
-                <li>
-                    '<%=comment.text%>' made on the spotting of a <a href="birds/<%=comment.bird._id%>">
-                            <%=comment.bird.name%>
-                        </a>,which was spotted by <a href="user/<%=comment.bird.user._id%>">
-                            <%=comment.bird.user.username %>
-                        </a>
-                        &nbsp in <%=comment.bird.location%>
-                </li>
 
-                <% }) %>
-        </ul>
+                <ul>
+                    <% comments.forEach((comment)=>{ %>
+
+                        <li>
+                            '<%=comment.text%>' made on the spotting of a <a href="birds/<%=comment.bird._id%>">
+                                    <%=comment.bird.name%>
+                                </a>,which was spotted by <a href="user/<%=comment.bird.user._id%>">
+                                    <%=comment.bird.user.username %>
+                                </a>
+                                &nbsp in <%=comment.bird.location%>
+                                    <form action="comments/<%=comment._id%>?_method=DELETE" method="POST">
+                                        <input type="submit" value="Delete Comment">
+                                    </form>
+                        </li>
+
+                        <% }) %>
+                </ul>
+                <%}%>
     </div>
     <a href="/auth/sign-out">Sign Out</a>
 </body>
