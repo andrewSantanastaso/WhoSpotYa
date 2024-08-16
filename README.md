@@ -1,6 +1,6 @@
 <img src ='public/images/WSP_FULL.png'>
 
-# Who Spot Ya - a community for bird admireres
+# Who Spot Ya - a community for bird appreciation
 
 ## Getting Started
 
