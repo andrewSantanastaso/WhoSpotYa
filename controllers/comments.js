@@ -22,7 +22,7 @@ const addComment = async (req, res) => {
         res.redirect('/birds')
     } catch (error) {
         res.status(400).json({ msg: error.message })
-        console.log(req.params)
+
     }
 }
 
