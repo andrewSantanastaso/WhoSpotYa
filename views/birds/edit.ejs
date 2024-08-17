@@ -16,7 +16,7 @@
         <input type="text" name="name" id="name" value="<%=bird.name%>">
         <label for="location">Where did you spot it?</label>
         <input type="text" name="location" id="location" value="<%=bird.location%>">
-        <button type="submit">Log Your Spot</button>
+        <button type="submit">Update Your Spot</button>
     </form>
     <form action="/birds/<%=bird.id%>?_method=DELETE" method="POST">
         <input type="submit" value="Delete Bird" id="submit">
